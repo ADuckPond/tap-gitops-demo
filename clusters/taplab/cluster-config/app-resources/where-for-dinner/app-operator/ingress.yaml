@@ -1,0 +1,16 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: where-for-dinner-ingress
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: where-for-dinner.k8sage.com
+    tls:
+      secretName: taptlscert
+  routes:
+  - conditions:
+    - prefix: /
+    services:
+    - name: gateway-where-for-dinner
+      port: 80
