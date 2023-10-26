@@ -58,6 +58,12 @@ tap_install:
         trustInsecureSourceUrls: true
         sourceUrlsCacheTtlSec: "30"
         sourceUrlsTimeoutSec: "30"
+    local_source_proxy:
+      repository: harbor.k8sage.com/tap/local-source
+      push_secret:
+        name: lsp-push-credentials
+        namespace: tap-install
+        create_export: true
     namespace_provisioner:
       controller: false
       gitops_install:
